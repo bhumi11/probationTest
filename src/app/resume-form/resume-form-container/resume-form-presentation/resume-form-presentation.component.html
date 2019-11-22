@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Resume Builder">
+  <meta name="keywords" content="HTML,CSS,SCSS,Bootstrap">
+  <meta name="author" content="Harshiv Patel">
+  <title> Resume Builder </title>
+  <!-- Font-awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+  <!-- Goole fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700,800,900" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+  <main class="my-5">
+    <div class="container">
+      <div class=" d-flex justify-content-center align-items-center">
+        <section class="form-wrapper">
+          <!-- Form Title -->
+          <h2 class="form-title text-uppercase text-primary">Resume Builder</h2>
+          <hr>
+          <!-- Start: Resume Builder Form -->
+          <form [formGroup]="resumeDetailsFormGroup">
+            <!-- Start : Personal Details section -->
+            <div>
+              <div class="d-flex align-items-center mt-4">
+                <div class="icon">
+                  <span class="fas fa-id-card"></span>
+                </div>
+                <h6 class="form-sub-title text-uppercase text-primary ">Personal Details</h6>
+              </div>
+
+              <!-- first Name Form group -->
+              <div class="form-group mt-4">
+                <label for="name">FirstName</label><span class="text-danger">*</span>
+                <input type="text" class="form-control " id="name" aria-describedby="name" formControlName="fname"
+                  placeholder="Enter your name">
+                <!-- Error Message -->
+                <div *ngIf="(formControls.fname.invalid && formControls.fname.touched && isFormSubmitted)">
+                  <div *ngIf="formControls.fname.errors?.invalidcharacters" class="text-danger mt-2">
+                    Enter proper fname
+                  </div>
+                  <div *ngIf="formControls.fname.errors?.required" class="text-danger mt-2">
+                    fname is required
+                  </div>
+                </div>
+              </div>
+
+              <!-- last Name Form group -->
+              <div class="form-group mt-4">
+                <label for="name">LastName</label>
+                <input type="text" class="form-control " id="name" aria-describedby="name" formControlName="lname"
+                  placeholder="Enter your name">
+                <!-- Error Message -->
+                <div *ngIf="(formControls.lname.invalid && formControls.lname.touched && isFormSubmitted)">
+                  <div *ngIf="formControls.lname.errors?.invalidcharacters" class="text-danger mt-2">
+                    Enter proper lname
+                  </div>
+                  <div *ngIf="formControls.lname.errors?.invalidcharacters" class="text-danger mt-2">
+                    lname is required
+                  </div>
+                </div>
+              </div>
+
+              <!-- Address Form group -->
+              <div class="form-group">
+                <label for="address">Address</label>
+                <textarea class="form-control" id="address" placeholder="Enter your address"
+                  formControlName="address"></textarea>
+                <!-- Error Message -->
+                <div *ngIf="(formControls.address.invalid && formControls.address.touched && isFormSubmitted)">
+                  <div *ngIf="formControls.address.errors?.required" class="text-danger mt-2">
+                    Address is required
+                  </div>
+                </div>
+              </div>
+
+              <!-- Date of Birth Form group -->
+              <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="text" class="form-control " id="dob" aria-describedby="dob"
+                  placeholder="Enter your date of birth" formControlName="birthdate" bsDatepicker>
+                <!-- Error Message -->
+                <div *ngIf="(formControls.birthdate.invalid && formControls.birthdate.touched && isFormSubmitted)">
+                  <div *ngIf="formControls.birthdate.errors?.required" class="text-danger mt-2">
+                    birthdate is required
+                  </div>
+                </div>
+              </div>
+
+              <!-- email Form group -->
+              <div class="form-group mt-4">
+                <label for="name">Email</label>
+                <input type="text" class="form-control " id="name" aria-describedby="name" formControlName="emailId"
+                  placeholder="Enter your name">
+                <div *ngIf="(formControls.emailId.invalid && formControls.emailId.touched && isFormSubmitted)">
+                  <div *ngIf="formControls.emailId.errors?.required" class="text-danger mt-2">
+                    emailId is required
+                  </div>
+                  <div *ngIf="formControls.emailId.errors?.validateEmail" class="text-danger mt-2">
+                    Enter proper email
+                  </div>
+                </div>
+              </div>
+
+              <!-- Phone Number Form group -->
+              <div class="form-group">
+                <label for="phone-number">Phone Number</label>
+                <input type="text" class="form-control" id="phone-number" aria-describedby="phone-number"
+                  placeholder="Enter your phone number" formControlName="contactNo">
+                <!-- Error Message -->
+                <div *ngIf="(formControls.contactNo.invalid && formControls.contactNo.touched && isFormSubmitted)">
+                  <div *ngIf="formControls.contactNo.errors?.validateOnlyNumber" class="text-danger mt-2">
+                    Enter proper contact number
+                  </div>
+                  <div *ngIf="formControls.contactNo.errors?.required" class="text-danger mt-2">
+                    contact number is required
+                  </div>
+                </div>
+              </div>
+
+              <!-- Maritial Status dowpdown -->
+              <div class="form-group">
+                <label for="maritial-status">Maritial Status</label>
+                <select class="custom-select" id="maritial-status" formControlName="status">
+                  <option selected>Select status</option>
+                  <option value="Single">Single</option>
+                  <option value="Married">Married</option>
+                  <option value="Divorse">Divorse</option>
+                  <option value="Widow">Widow</option>
+                </select>
+                <div *ngIf="(formControls.status.invalid && formControls.status.touched && isFormSubmitted)">
+                  <div *ngIf="formControls.status.errors?.required" class="text-danger mt-2">
+                    status is required
+                  </div>
+                </div>
+              </div>
+
+              <hr class="divider">
+            </div>
+            <!-- End : Personal Details section -->
+
+            <!-- Start : Education Details section -->
+            <div>
+              <div class="d-flex align-items-center mt-4">
+                <div class="icon">
+                  <span class="fas fa-book-open"></span>
+                </div>
+                <h6 class="form-sub-title text-uppercase text-primary ">Education Details</h6>
+              </div>
+              <!-- hsc marks Form group -->
+              <div class="form-group mt-4">
+                <label for="name">10th Percentage</label>
+                <input type="text" class="form-control " id="name" aria-describedby="name" formControlName="hscPercent"
+                  placeholder="Enter your 10th percentage">
+                <!-- Error Message -->
+                <div *ngIf="(formControls.hscPercent.invalid && formControls.hscPercent.touched && isFormSubmitted)">
+                  <div *ngIf="formControls.hscPercent.errors?.validateNumberAndPercent" class="text-danger mt-2">
+                    Enter proper percentage
+                  </div>
+                  <div *ngIf="formControls.hscPercent.errors?.required" class="text-danger mt-2">
+                    percentage is required
+                  </div>
+                </div>
+              </div>
+
+              <!-- hsc marks Form group -->
+              <div class="form-group mt-4">
+                <label for="name">12th Percentage</label>
+                <input type="text" class="form-control " id="name" aria-describedby="name" formControlName="sscPercent"
+                  placeholder="Enter your 12th percentage">
+                <!-- Error Message -->
+                <div *ngIf="(formControls.sscPercent.invalid && formControls.sscPercent.touched && isFormSubmitted)">
+                  <div *ngIf="formControls.sscPercent.errors?.validateNumberAndPercent" class="text-danger mt-2">
+                    Enter proper percentage
+                  </div>
+                  <div *ngIf="formControls.sscPercent.errors?.required" class="text-danger mt-2">
+                    percentage is required
+                  </div>
+                </div>
+              </div>
+
+              <!-- Graduation dowpdown -->
+              <div class="form-group">
+                <label for="graduation">Qualification</label>
+                <select class="custom-select" id="graduation" formControlName="bachelors">
+                  <option selected>select qualification</option>
+                  <option value="engineering">engineering</option>
+                  <option value="BSC">BSC</option>
+                  <option value="BCA">BCA</option>
+                  <option value="MSC">MSC</option>
+                  <option value="MCA">MCA</option>
+                </select>
+                <div *ngIf="(formControls.bachelors.invalid && formControls.bachelors.touched && isFormSubmitted)">
+                  <div *ngIf="formControls.bachelors.errors?.required" class="text-danger mt-2">
+                    bachelors is required
+                  </div>
+                </div>
+              </div>
+              <!-- Graduation year dowpdown -->
+              <div class="form-group">
+                <label for="graduation-year">Graduation Year</label>
+                <select class="custom-select" id="graduation-year" formControlName="year">
+                  <option selected>Select graduation year</option>
+                  <option value="2012">2012</option>
+                  <option value="2013">2013</option>
+                  <option value="2014">2014</option>
+                  <option value="2015">2015</option>
+                  <option value="2016">2016</option>
+                  <option value="2017">2017</option>
+                  <option value="2018">2018</option>
+                </select>
+                <div *ngIf="(formControls.year.invalid && formControls.year.touched && isFormSubmitted)">
+                  <div *ngIf="formControls.year.errors?.required" class="text-danger mt-2">
+                    year is required
+                  </div>
+                </div>
+              </div>
+
+              <hr class="divider">
+            </div>
+            <!-- End : Education Details section -->
+
+            <!-- Start : Skills section -->
+            <div>
+              <div class="d-flex align-items-center mt-4">
+                <div class="icon">
+                  <span class="fas fa-cogs"></span>
+                </div>
+                <h6 class="form-sub-title text-uppercase text-primary ">Skills</h6>
+              </div>
+              <!-- Checkbox -->
+              <!-- <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">Check this custom
+                  checkbox</label>
+              </div> -->
+
+
+              <hr class="divider">
+            </div>
+            <!-- End : Skills section -->
+
+            <!-- Start : Experience section -->
+            <div>
+              <div class="d-flex align-items-center mt-4">
+                <div class="icon">
+                  <span class="fas fa-briefcase"></span>
+                </div>
+                <h6 class="form-sub-title text-uppercase text-primary">Experience </h6>
+              </div>
+              <!-- Graduation dowpdown -->
+              <div class="form-group">
+                <label for="graduation">Qualification</label>
+                <select class="custom-select" id="graduation" formControlName="experiance">
+                  <option selected>select qualification</option>
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+                <div *ngIf="(formControls.experiance.invalid && formControls.experiance.touched && isFormSubmitted)">
+                  <div *ngIf="formControls.experiance.errors?.required" class="text-danger mt-2">
+                    experiance is required
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+            </div>
+            <!-- End : Experience section -->
+
+            <!-- Start : Form Footer -->
+            <div class="d-flex pt-3 justify-content-end">
+              <button type="button" class="btn btn-reset" (click)="this.resumeDetailsFormGroup.reset()">Reset</button>
+              <button type="submit" value="submit" class="ml-3 btn btn-primary " (click)="onSubmit()">Submit</button>
+            </div>
+            <!-- End : Form Footer -->
+
+          </form>
+          <!-- End: Resume Builder Form -->
+
+        </section>
+      </div>
+    </div>
+
+  </main>
+</body>
+
+</html>

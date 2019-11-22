@@ -1,0 +1,34 @@
+{
+  "Resume": [
+    {
+      "fname": "bhumi",
+      "lname": "desai",
+      "address": "valsad",
+      "birthdate": "1996-12-11",
+      "emailId": "bhumidesa01@gmail.com",
+      "contactNo": 9898989898,
+      "status": "married",
+      "hscPercent": "60%",
+      "sscPercent": "70%",
+      "bachelors": "BTech",
+      "year": 2018,
+      "experiance": "1",
+      "id": 1
+    },
+    {
+      "fname": "bhumiiii",
+      "lname": "ffff",
+      "address": "vsg",
+      "birthdate": "2019-11-07T18:30:00.000Z",
+      "emailId": "fgfd",
+      "contactNo": "9898989898",
+      "status": "Married",
+      "hscPercent": "10%",
+      "sscPercent": "20%",
+      "bachelors": "engineering",
+      "year": "2015",
+      "experiance": "1",
+      "id": 2
+    }
+  ]
+}

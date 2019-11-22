@@ -1,0 +1,33 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+.btn-add,.btn-delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $success-light;    
+    color: $success;
+    border: none;
+    padding: 5px;
+    outline: none;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    font-size: 16px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.btn-delete{
+    background-color: $danger-light;    
+    color: $danger;
+}
+
+.btn-reset{
+    background-color: $primary-light;
+    color: $primary;
+    font-weight: 500;
+    box-shadow: 0;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}

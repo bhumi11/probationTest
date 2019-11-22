@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+// Custom Abstracts scss files
+@import "assets/scss/abstracts/index";
+
+// Bootstrap Files
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import  "../node_modules/bootstrap/scss/mixins";
+
+// animation scss file
+@import "assets/scss/animations/index";
+
+//Custom base scss File
+@import "assets/scss/base/index";
+
+// Custom components files
+@import "assets/scss/components/index";
+
+// Bootstrap File
+@import "../node_modules/bootstrap/scss//bootstrap";
